@@ -1,0 +1,8 @@
+D:\Projects\TicketSystem\TicketSystem\TicketSystem.Model\obj\Debug\TicketSystem.Model.csprojResolveAssemblyReference.cache
+D:\Projects\TicketSystem\TicketSystem\TicketSystem.Model\bin\Debug\TicketSystem.Model.dll.config
+D:\Projects\TicketSystem\TicketSystem\TicketSystem.Model\bin\Debug\TicketSystem.Model.dll
+D:\Projects\TicketSystem\TicketSystem\TicketSystem.Model\bin\Debug\TicketSystem.Model.pdb
+D:\Projects\TicketSystem\TicketSystem\TicketSystem.Model\bin\Debug\EntityFramework.dll
+D:\Projects\TicketSystem\TicketSystem\TicketSystem.Model\bin\Debug\EntityFramework.xml
+D:\Projects\TicketSystem\TicketSystem\TicketSystem.Model\obj\Debug\TicketSystem.Model.dll
+D:\Projects\TicketSystem\TicketSystem\TicketSystem.Model\obj\Debug\TicketSystem.Model.pdb
