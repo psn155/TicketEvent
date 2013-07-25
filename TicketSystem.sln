@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketSystem", "TicketSystem\TicketSystem.csproj", "{BADE4C86-E82C-4013-A438-080B0EFBF6E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketSystem.UnitTests", "TicketSystem.UnitTests\TicketSystem.UnitTests.csproj", "{3A8A2036-39C1-482D-A2FE-EBC32A7DE546}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketSystem.Model", "TicketSystem.Model\TicketSystem.Model.csproj", "{E5CF468E-8E9A-4BC6-A9B2-95F1ABE15AD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BADE4C86-E82C-4013-A438-080B0EFBF6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BADE4C86-E82C-4013-A438-080B0EFBF6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BADE4C86-E82C-4013-A438-080B0EFBF6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BADE4C86-E82C-4013-A438-080B0EFBF6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8A2036-39C1-482D-A2FE-EBC32A7DE546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8A2036-39C1-482D-A2FE-EBC32A7DE546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8A2036-39C1-482D-A2FE-EBC32A7DE546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8A2036-39C1-482D-A2FE-EBC32A7DE546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5CF468E-8E9A-4BC6-A9B2-95F1ABE15AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5CF468E-8E9A-4BC6-A9B2-95F1ABE15AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5CF468E-8E9A-4BC6-A9B2-95F1ABE15AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5CF468E-8E9A-4BC6-A9B2-95F1ABE15AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
