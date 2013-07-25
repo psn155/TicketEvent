@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div id="body">
+    <div id="EventsOutput"></div>
+    <button id="CreateEvent">Create New Event</button>
+    <div id="EventEditOutput"></div>
+</div>
+
+<script id="EventsTable" type="text/html">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Location</th>
+        </thead>
+        <tbody>
+            {{#each events}}
+            <tr data-id={{Id}}>
+                <td>{{Name}}</td>
+                <td>{{Description}}</td>
+                <td>{{Date}}</td>
+                <td>{{Location}}</td>
+                <td>
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</script>
+
+<script id="EventEdit" type="text/html">
+    <hr />
+    @*<form>*@
+        <input type="hidden" name="id" id="id" value="{{Id}}" />
+        <label for="name">Name:</label>
+        <input type="text" name="Name" id="name" required value="{{Name}}" />
+        <label for="description">Description:</label>
+        <input type="text" name="Description" id ="description" value="{{Description}}" />
+        <label for="date">Date:</label>
+        <input type="text" name="Date" id ="date" value="{{Date}}" />
+        <label for="location">Location:</label>
+        <input type="text" name="Location" id ="location" value="{{Location}}" />
+        <button id="submit">Submit</button>
+        <button id="cancel">Cancel</button>
+    @*</form>*@
+</script>
+
+@section scripts{
+    <script src="~/Scripts/my.dataservice.js"></script>
+    <script src="~/Scripts/handlebars.js"></script>
+    <script>
+        (function () {
+            var ds = new DataService(),
+                templates = {},
+
+                compileTemplates = function () {
+                    templates.eventTable = Handlebars.compile($('#EventsTable').html());
+                    templates.eventEdit = Handlebars.compile($('#EventEdit').html());
+                },
+
+                showEvents = function (data) {
+                    var output = templates.eventTable({ events: data });
+                    $('#EventsOutput').html(output);
+                },
+
+                refreshEvents = function () {
+                    ds.getEvents(showEvents);
+                },
+
+                wireEvents = function () {
+                    $(document).on("click", ".edit", editEvent);
+                    $(document).on("click", ".delete", deleteEvent);
+                    $(document).on("click", "#submit", submitEvent);
+                    $(document).on("click", "#cancel", clearEdit);
+                    $(document).on("click", "#CreateEvent", createEvent);                    
+                },
+
+                getId = function (thisObj) {
+                    return $(thisObj).parents("tr").attr("data-id");
+                },
+
+                showEventForEdit = function (data) {
+                    var output = templates.eventEdit(data);
+                    $('#EventEditOutput').html(output);
+                },
+
+                deleteEvent = function () {
+                    var id = getId(this);
+                    ds.deleteEvent(id, function () {
+                        refreshEvents();
+                        clearEdit();
+                    });
+                },
+
+                editEvent = function () {
+                    var id = getId(this);
+                    ds.getEvent(id, showEventForEdit);
+                },
+
+                createEvent = function () {
+                    var event = {
+                        "Id": 0,
+                        "Name": "",
+                        "Description": "",
+                        "Date": "",
+                        "Location": "",
+                        "IsActive": true
+                    };
+                    showEventForEdit(event);
+                },
+
+                clearEdit = function () {
+                    $("#EventEditOutput").empty();
+                },
+
+                submitEvent = function () {                    
+                    var event = {
+                        "Id": $("#id").val(),
+                        "Name": $("#name").val(),
+                        "Description": $("#description").val(),
+                        "Date": $("#date").val(),
+                        "Location": $("#location").val(),
+                        "IsActive": true
+                    };
+                    if (event.Id == 0) {
+                        ds.createEvent(event, function () {
+                            refreshEvents();
+                            clearEdit();
+                        });
+                    } else {                        
+                        ds.updateEvent(event, function () {
+                            refreshEvents();
+                            clearEdit();
+                        });
+                    }
+                };
+
+            $(function () {
+                wireEvents();
+                compileTemplates();
+                refreshEvents();
+            });
+        }());
+    </script>
+}
+
