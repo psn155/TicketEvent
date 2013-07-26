@@ -8,3 +8,9 @@ This project is not a real application. It only demonstrates a sample structure 
 - Structure map dependency resolver
 - JSON
 - Javascript, JQuery, Handlebars
+
+
+Sample functionalities:
+
+- List all events
+- CRUD methods for an event
