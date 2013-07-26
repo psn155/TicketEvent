@@ -10,7 +10,7 @@ This project is not a real application. It only demonstrates a sample structure 
 - Javascript, JQuery, Handlebars
 
 
-Sample functionalities:
+Sample functionalities with RESTful services using JSON data:
 
 - List all events
 - CRUD methods for an event
